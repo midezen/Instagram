@@ -5,12 +5,20 @@ import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import { createBrowserRouter } from "react-router-dom";
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+`;
+
+const OutletContainer = styled.div`
+  flex: 4.5;
+`;
 
 const Layout = () => (
   <Container>
     <Menu />
-    <Outlet />
+    <OutletContainer>
+      <Outlet />
+    </OutletContainer>
   </Container>
 );
 
