@@ -9,11 +9,15 @@ import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import ProfileImage from "../images/Ayomide 2.png";
 
 const Container = styled.div`
   flex: 1;
   border-right: 1px solid lightgrey;
+  background-color: ${({ theme }) => theme.bg};
+  color: ${({ theme }) => theme.text};
 `;
 
 const Wrapper = styled.div``;
@@ -30,57 +34,63 @@ const Item = styled.div`
   align-items: center;
   padding: 15px 20px;
   font-size: 16px;
-  // font-weight: 200;
 `;
 
 const Image = styled.img`
-  width: 22px;
-  height: 22px;
+  width: 29px;
+  height: 29px;
   object-fit: cover;
   border-radius: 50%;
 `;
 
-const Menu = () => {
+const Menu = ({ darkMode }) => {
   return (
     <Container>
       <Wrapper>
         <Logo>Instagram</Logo>
         <Item>
-          <HomeOutlinedIcon />
+          <HomeOutlinedIcon style={{ fontSize: "29px" }} />
           Home
         </Item>
         <Item>
-          <SearchOutlinedIcon />
+          <SearchOutlinedIcon style={{ fontSize: "29px" }} />
           Search
         </Item>
         <Item>
-          <ExploreOutlinedIcon />
+          <ExploreOutlinedIcon style={{ fontSize: "29px" }} />
           Explore
         </Item>
         <Item>
-          <SmartDisplayOutlinedIcon />
+          <SmartDisplayOutlinedIcon style={{ fontSize: "29px" }} />
           Reels
         </Item>
         <Item>
-          <SendOutlinedIcon />
+          <SendOutlinedIcon style={{ fontSize: "29px" }} />
           Messages
         </Item>
         <Item>
-          <FavoriteBorderOutlinedIcon />
+          <FavoriteBorderOutlinedIcon style={{ fontSize: "29px" }} />
           Notifications
         </Item>
         <Item>
-          <AddCircleOutlineOutlinedIcon />
+          <AddCircleOutlineOutlinedIcon style={{ fontSize: "29px" }} />
           Create
         </Item>
         <Item>
           <Image src={ProfileImage} alt="" />
           Profile
         </Item>
-        <Item>
-          <MenuOutlinedIcon />
-          More
-        </Item>
+        {darkMode ? (
+          <Item>
+            <LightModeOutlinedIcon style={{ fontSize: "29px" }} />
+            LightMode
+          </Item>
+        ) : (
+          <Item>
+            <DarkModeIcon style={{ fontSize: "29px" }} />
+            DarkMode
+          </Item>
+        )}
       </Wrapper>
     </Container>
   );
